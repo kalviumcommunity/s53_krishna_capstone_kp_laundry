@@ -1,7 +1,12 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
+import { UserButton, auth } from '@clerk/nextjs';
+
 
 function Header() {
+    const { userId } = auth();
+
   return (
     <header className="bg-white">
         
@@ -40,11 +45,24 @@ function Header() {
 
                 <div className="flex items-center gap-4">
                 <div className="sm:flex sm:gap-4">
-                    <a
+
+
+                <div>
+                    {userId ? (
+                        <div className='flex gap-4 items-center'>
+                        <Link href='/dashboard'>Dashboard</Link>
+                        <UserButton afterSignOutUrl='/' />
+                        </div>
+                    ) : (
+                        <div className='flex gap-4 items-center'>
+                       <a
                     className="rounded-md bg-[#21B7E2] px-5 py-2.5 text-sm font-medium text-white shadow"
                     href="#"
                     >
-                    Login
+                        <Link href='/sign-in'>
+                            login
+                        </Link>
+                    
                     </a>
 
                     <div className="hidden sm:flex">
@@ -52,9 +70,15 @@ function Header() {
                         className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-[#21B7E2]"
                         href="#"
                     >
+                        <Link href='/sign-up'>
                         Register
+                        </Link>
                     </a>
                     </div>
+                        </div>
+                    )}
+                </div>
+                   
                 </div>
 
                 <div className="block md:hidden">

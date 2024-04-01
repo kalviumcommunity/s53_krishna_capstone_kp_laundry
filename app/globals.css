@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap');
  
 @layer base {
   :root {
@@ -73,4 +74,11 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.grandstander {
+  font-family: "Grandstander", cursive;
+  font-optical-sizing: auto;
+  font-weight:200;
+  font-style: normal;
 }

@@ -1,54 +1,66 @@
+import { MenuIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { UserButton, auth ,SignInButton, SignedIn, SignedOut, SignUpButton, } from '@clerk/nextjs';
 
+type Props = {}
 
-function Header() {
-
-  return (
-    <header className="bg-white">
+const Header = async (props: Props) => {
+  return( 
+  <header className='fixed right-0 left-0 top-0  px-4  backdrop-blur-lg z-[100] flex items-center border-b-[1px] justify-between'>
+     <aside className="flex items-center gap-[2px]">
         
-        <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
-            <div className="flex h-16 items-center justify-between">
-                <div className="flex-1 md:flex md:items-center md:gap-12">
-                    <Image src='/logo.svg' alt='logo' height={350} width={350} className='p-10 '/>
-                </div>
+        <Image
+          src="/logo.svg"
+          width={200}
+          height={200}
+          alt=""
+          
+        />
 
-            <div className="md:flex md:items-center md:gap-12">
-                <nav aria-label="Global" className="hidden md:block">
-                <ul className="flex items-center gap-6 text-sm">
-                    <li>
-                    <a className="text-[#21B7E2] transition hover:text-sky-700/75" href="#"> About </a>
-                    </li>
-
-                    <li>
-                    <a className="text-[#21B7E2] transition hover:text-sky-700/75" href="#"> Careers </a>
-                    </li>
-
-                    <li>
-                    <a className="text-[#21B7E2] transition hover:text-sky-700/75" href="#"> History </a>
-                    </li>
-
-                    <li>
-                    <a className="text-[#21B7E2] transition hover:text-sky-700/75" href="#"> Services </a>
-                    </li>
-
-                    <li>
-                    <a className="text-[#21B7E2] transition hover:text-sky-700/75" href="#"> Projects </a>
-                    </li>
-
-                  
-                </ul>
-                </nav>
-
-                <div className="flex items-center gap-4">
+    </aside>
+    <nav className="absolute left-[50%] top-[50%] transform translate-x-[-50%] translate-y-[-50%] hidden md:block text-[#21B7E2] transition">
+        <ul className="flex items-center gap-4 list-none">
+          <li className=' hover:text-sky-700/75'>
+            <Link href="#">Products</Link>
+          </li>
+          <li  className=' hover:text-sky-700/75'>
+            <Link href="#">Pricing</Link>
+          </li>
+          <li className=' hover:text-sky-700/75'>
+            <Link href="#">Clients</Link>
+          </li>
+          <li className=' hover:text-sky-700/75'>
+            <Link href="#">Resources</Link>
+          </li>
+          <li>
+            <Link href="#">Documentation</Link>
+          </li>
+          <li className=' hover:text-sky-700/75'>
+            <Link href="#">Enterprise</Link>
+          </li>
+        </ul>
+      </nav>
+      <aside className="flex items-center gap-4">
+        {/* <Link
+          href="/dashboard"
+          className="relative inline-flex h-10 overflow-hidden rounded-full p-[2px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+        >
+          <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+          <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-[#21B7E2] px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
+            {true ? 'Dashboard' : 'Get Started'}
+          </span>
+        </Link>
+        {user ? <UserButton afterSignOutUrl="/" /> : null}
+        <MenuIcon className="md:hidden" /> */}
+        <div className="flex items-center gap-4">
                 <div className="sm:flex sm:gap-4">
 
 
                 <div>
 
-                <SignedIn><UserButton/> </SignedIn>
+                <SignedIn><UserButton afterSignOutUrl='/'/> </SignedIn>
                 <SignedOut>
                 <div className='flex gap-4 items-center'>
                        <a
@@ -89,11 +101,9 @@ function Header() {
                     </button>
                 </div>
                 </div>
-            </div>
-            </div>
-        </div>
-    </header>
-  )
-}
+            
+      </aside>
+  </header>
+  )}
 
 export default Header

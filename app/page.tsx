@@ -1,7 +1,7 @@
 
-
 import Image from "next/image";
-import Header from "./_components/Header"
+
+
 
 
 
@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <main className="flex items-center justify-center flex-col">
       {/* navbar */}
-      <Header/>
+      
       {/* hero section */}
       <section className=" h-screen w-full mt-16  rounded-md  !overflow-visible relative grid grid-cols-2  place-items-center">
         <div>

@@ -12,7 +12,9 @@ export default function Home() {
 
   return (
     <main className="flex items-center justify-center flex-col">
+      {/* navbar */}
       <Header/>
+      {/* hero section */}
       <section className=" h-screen w-full mt-16  rounded-md  !overflow-visible relative grid grid-cols-2  place-items-center">
         <div>
           <div className="flex flex-col  items-center">
@@ -42,6 +44,45 @@ export default function Home() {
         />
         </div>
       </section>
+      {/* steps in the website */}
+      <section className="bg-[#D0F6FF] w-full rounded-xl">
+        <h2 className="text-center text-[#21B7E2] mt-10 text-3xl">How it Works</h2>
+        <h2 className="text-center text-[#263238] mt-9 text-6xl"> Get it done in 4 steps</h2>
+        <div className=" flex justify-evenly mt-12 ">
+          <div className="bg-white text-center mb-14 rounded-2xl h-96">
+            <h2 className="text-2xl text-[#21B7E2] mt-8 ">Step 1</h2>
+            <h2 className="mt-6 text-[#263238] text-4xl">Orders</h2>
+            <Image src='/step1.svg' alt="step1" height={220} width={220} className="mt-4"/>
+          </div>
+          <div className="bg-white text-center mb-14 rounded-2xl h-96">
+            <h2 className="text-2xl text-[#21B7E2] mt-8 ">Step 2</h2>
+            <h2 className="mt-6 text-[#263238] text-4xl">Wash & Dry</h2>
+            <Image src='/step2.svg' alt="step2" height={220} width={220} className="-mt-12"/>
+          </div>
+          <div className="bg-white text-center mb-14 rounded-2xl h-96">
+            <h2 className="text-2xl text-[#21B7E2] mt-8 ">Step 3</h2>
+            <h2 className="mt-6 text-[#263238] text-4xl">Fold</h2>
+            <Image src='/step3.svg' alt="step3" height={220} width={220} className="-mt-10"/>
+          </div>
+          <div className="bg-white text-center mb-14 rounded-2xl h-96">
+            <h2 className="text-2xl text-[#21B7E2] mt-8 ">Step 4</h2>
+            <h2 className="mt-6 text-[#263238] text-4xl">Delivery</h2>
+            <Image src='/step4.svg' alt="step1" height={220} width={220} className="mt-4"/>
+          </div>
+        </div>
+      </section>
+      {/* <section>
+        <div className="grid grid-cols-2">
+          <div className="grid-cols-1">
+          <h2 className="text-9xl">Wash & Fold</h2>
+          </div>
+          <div>
+            <h2>hbdvdvnfdjvndjvn</h2>
+          </div>
+
+        </div>
+
+      </section> */}
       
     </main>
   );

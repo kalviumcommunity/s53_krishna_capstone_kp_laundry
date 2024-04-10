@@ -52,13 +52,18 @@ const MobileNav = () => {
                           }
                         )}
                       >
-                        <Image
-                          src={item.imgURL}
-                          alt={item.label}
-                          width={20}
-                          height={20}
-                        />
-                        <p className="font-semibold">{item.label}</p>
+                        {typeof item.imgURL === 'string' ? (
+                              <Image
+                                src={item.imgURL}
+                                alt={item.label}
+                                width={24}
+                                height={24}
+                                className="bg-green"
+                              />
+                            ) : (
+                              <item.imgURL className="w-6 h-6" /> // Adjust the className to control the size as needed
+                            )}
+                                                    <p className="font-semibold">{item.label}</p>
                       </Link>
                     </SheetClose>
                   );

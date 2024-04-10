@@ -1,4 +1,5 @@
 "use client"
+import DashIcons from '@/components/DashIcons'
 import useStoreUserEffect from '@/hooks/useStoreuser'
 import { useSession } from '@clerk/nextjs'
 import { useConvexAuth } from 'convex/react'
@@ -11,27 +12,25 @@ function Dashboard() {
     if (session!==undefined){
       console.log(session)
     }
-    
+    const now = new Date();
 
-
-
-  return (
-    <div className='mt-10 text-start max-w-xl mx-auto bg-neutral-200 p-5 rounded'>
-    <h1 className='text-4xl font-bold'>Welcome</h1>
-    <ul className='list-none mt-10'>
-      <li className='mb-2'>
-        <span className='font-semibold'>First Name:</span> {session?.user.firstName}
-      </li>
-      <li className='mb-2'>
-        <span className='font-semibold'>Last Name:</span> {session?.user.lastName}
-      </li>
-      <li className='mb-2'>
-        <span className='font-semibold'>Email:</span>{' '}
-        {session?.user.emailAddresses[0].emailAddress}
-      </li>
-    </ul>
-  </div>
-  )
+    const time = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+    const date = (new Intl.DateTimeFormat('en-US', { dateStyle: 'full' })).format(now);
+  
+    return (
+      <section className="flex size-full flex-col gap-5 text-white">
+        <div className="h-[303px] w-full rounded-[20px] bg-hero bg-cover">
+          <div className="flex h-full flex-col justify-between max-md:px-5 max-md:py-8 lg:p-11">
+            <div className="flex flex-col flex-end">
+              <h1 className="text-4xl font-extrabold lg:text-7xl">{time}</h1>
+              <p className="text-lg font-medium text-sky-1 lg:text-2xl">{date}</p>
+            </div>
+          </div>
+        </div>
+  
+        <DashIcons/>
+      </section>
+    );
 }
 
 export default Dashboard

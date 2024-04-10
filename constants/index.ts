@@ -1,3 +1,5 @@
+import { DashboardIcon } from "@radix-ui/react-icons";
+
 export const sidebarLinks = [
     {
       imgURL: '/icons/Home.svg',
@@ -6,7 +8,7 @@ export const sidebarLinks = [
     },
   
     {
-      imgURL: '/icons/upcoming.svg',
+      imgURL: DashboardIcon,
       route: '/dashboard',
       label: 'Dashboard',
     },
@@ -17,13 +19,13 @@ export const sidebarLinks = [
     },
     {
       imgURL: '/icons/Video.svg',
-      route: '/recordings',
-      label: 'Recordings',
+      route: '/records',
+      label: 'Records',
     },
     {
       imgURL: '/icons/add-personal.svg',
-      route: '/personal-room',
-      label: 'Personal Room',
+      route: '/clothes',
+      label: 'Add Clothes',
     },
   ];
   

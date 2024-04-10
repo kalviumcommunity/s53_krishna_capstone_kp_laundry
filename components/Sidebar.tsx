@@ -9,7 +9,7 @@ import React from "react";
 const Sidebar = () => {
     const pathname = usePathname();
   return (
-    <section className="sticky left-0 top-0 flex h-screen w-fit flex-col  justify-between  bg-dark-1 p-6 pt-28 text-white max-sm:hidden lg:w-[264px]">
+    <section className="sticky left-0 top-0 flex h-screen w-fit flex-col  justify-between  bg-dark-1 p-6 pt-28 text-white max-sm:hidden lg:w-[264px] bg-white">
       <div className="flex flex-1 flex-col gap-6">
         {sidebarLinks.map((item) => {
           const isActive = pathname === item.route || pathname.startsWith(`${item.route}/`);
@@ -21,19 +21,23 @@ const Sidebar = () => {
               className={cn(
                 'flex gap-4 items-center p-4 rounded-lg justify-start',
                 {
-                  'bg-[#00334C]': isActive,
+                  'bg-[#50b6e9]': isActive,
                   
                 }
               )}
             >
-              <Image
-                src={item.imgURL}
-                alt={item.label}
-                width={24}
-                height={24}
-                className="bg-green"
-              />
-              <p className="text-lg font-semibold max-lg:hidden text-[#21B8E2]">
+              {typeof item.imgURL === 'string' ? (
+                  <Image
+                    src={item.imgURL}
+                    alt={item.label}
+                    width={24}
+                    height={24}
+                    className="bg-green"
+                  />
+                ) : (
+                  <item.imgURL className="w-6 h-6" /> // Adjust the className to control the size as needed
+                )}
+              <p className="text-lg font-semibold max-lg:hidden text-[#00334C]">
                 {item.label}
               </p>
             </Link>

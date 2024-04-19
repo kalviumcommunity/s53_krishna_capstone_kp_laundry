@@ -7,6 +7,8 @@ import { useRouter } from 'next/navigation';
 import HomeCard from './HomeCard';
 import { useUser } from '@clerk/nextjs';
 import Loader from './Loader';
+import ClotheModal from './ClotheModal';
+import ClothesForm from './ClotheForm';
 
 const initialValues = {
   dateTime: new Date(),
@@ -17,7 +19,7 @@ const initialValues = {
 const DashIcons = () => {
   const router = useRouter();
   const [iconClicked, setIconClicked] = useState<
-    'isScheduleMeeting' | 'isJoiningMeeting' | 'isInstantMeeting' | undefined
+    'add clothe' |undefined
   >(undefined);
   const [values, setValues] = useState(initialValues);
   const { user } = useUser();
@@ -31,7 +33,7 @@ const DashIcons = () => {
         img="/icons/add-meeting.svg"
         title="Add Clothes"
         description="give your clothes in instant"
-        // handleClick={() => setIconClicked('isInstantMeeting')}
+        handleClick={() => setIconClicked('add clothe')}
       />
       <HomeCard
         img="/icons/join-meeting.svg"
@@ -54,7 +56,25 @@ const DashIcons = () => {
         className="bg-yellow-1"
         handleClick={() => router.push('/recordings')}
       />
+
+
+
+
+      <ClotheModal
+              isOpen={iconClicked === 'add clothe'}
+              onClose={() => setIconClicked(undefined)}
+              title="add clothes"
+              className="text-center"
+              buttonText="add"
+              
+              handleClick={() => router.push("/dashboard")}
+            />
     </section>
+    
+
+
+
+
   );
 };
 

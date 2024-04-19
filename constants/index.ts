@@ -1,29 +1,35 @@
 import { DashboardIcon } from "@radix-ui/react-icons";
+import { AreaChart, ArrowBigRight, CheckCircle, Home, LayoutDashboard, LineChart, Plus, PlusCircleIcon, ShoppingBag } from "lucide-react";
 
 export const sidebarLinks = [
     {
-      imgURL: '/icons/Home.svg',
+      imgURL: Home,
       route: '/',
       label: 'Home',
     },
   
     {
-      imgURL: DashboardIcon,
+      imgURL: LayoutDashboard,
       route: '/dashboard',
       label: 'Dashboard',
     },
     {
-      imgURL: '/icons/previous.svg',
-      route: '/previous',
-      label: 'Previous',
+      imgURL: ShoppingBag ,
+      route: '/orders',
+      label: 'orders',
     },
     {
-      imgURL: '/icons/Video.svg',
-      route: '/records',
-      label: 'Records',
+      imgURL: AreaChart,
+      route: '/status',
+      label: 'Status',
     },
     {
-      imgURL: '/icons/add-personal.svg',
+      imgURL:CheckCircle ,
+      route: '/completed',
+      label: 'completed',
+    },
+    {
+      imgURL: PlusCircleIcon,
       route: '/clothes',
       label: 'Add Clothes',
     },

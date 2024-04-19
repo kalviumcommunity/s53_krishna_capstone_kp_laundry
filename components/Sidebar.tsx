@@ -22,6 +22,7 @@ const Sidebar = () => {
                 'flex gap-4 items-center p-4 rounded-lg justify-start',
                 {
                   'bg-[#50b6e9]': isActive,
+                  // 'fill:blue':isActive,
                   
                 }
               )}
@@ -35,7 +36,9 @@ const Sidebar = () => {
                     className="bg-green"
                   />
                 ) : (
-                  <item.imgURL className="w-6 h-6" /> // Adjust the className to control the size as needed
+                  <item.imgURL className="w-8 h-8 
+                  " fill="#00334C" /> // Adjust the className to control the size as needed
+                  
                 )}
               <p className="text-lg font-semibold max-lg:hidden text-[#00334C]">
                 {item.label}

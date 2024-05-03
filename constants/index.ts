@@ -1,5 +1,5 @@
 import { DashboardIcon } from "@radix-ui/react-icons";
-import { AreaChart, ArrowBigRight, CheckCircle, Home, LayoutDashboard, LineChart, Plus, PlusCircleIcon, ShoppingBag } from "lucide-react";
+import { AreaChart, ArrowBigRight, CheckCircle, Home, LayoutDashboard, LayoutGrid, LineChart, Plus, PlusCircleIcon, ShoppingBag } from "lucide-react";
 
 export const sidebarLinks = [
     {
@@ -9,7 +9,7 @@ export const sidebarLinks = [
     },
   
     {
-      imgURL: LayoutDashboard,
+      imgURL: LayoutGrid,
       route: '/dashboard',
       label: 'Dashboard',
     },
@@ -28,11 +28,11 @@ export const sidebarLinks = [
       route: '/completed',
       label: 'completed',
     },
-    {
-      imgURL: PlusCircleIcon,
-      route: '/clothes',
-      label: 'Add Clothes',
-    },
+    // {
+    //   imgURL: PlusCircleIcon,
+    //   route: '/clothes',
+    //   label: 'Add Clothes',
+    // },
   ];
   
   export const avatarImages = [

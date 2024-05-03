@@ -27,8 +27,9 @@ function Dashboard() {
             </div>
           </div>
         </div>
+        
   
-        <DashIcons/>
+        <DashIcons />
       </section>
     );
 }

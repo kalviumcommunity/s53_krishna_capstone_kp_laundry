@@ -1,5 +1,6 @@
 
 import Image from "next/image";
+import Link from "next/link";
 
 
 
@@ -28,8 +29,10 @@ export default function Home() {
               affordable price. Pickup and drop-off options available!
             </h2>
             
-            <h2 className="bg-[#D0F6FF] rounded-full w-[85%] text-center font-bold h-16 mt-9 text-2xl flex 
-            mr-24  items-center justify-center"> How it works</h2>
+            <Link href="/dashboard">
+              <h2 className="bg-[#D0F6FF] text-[#00334C] rounded-full w-[85%] text-center font-bold h-16 mt-9 text-2xl flex 
+              mr-24  items-center justify-center">Get Started !</h2>
+            </Link>
           </div>
 
         </div>

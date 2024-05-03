@@ -20,7 +20,8 @@ export const createClothesForm = mutation({
         pant: v.string(),
         pyjama: v.string(),
         bedsheets: v.string(),
-        // createdBy: v.string()
+        // createdBy
+        createdBy: v.string(),
     },
     handler: async(ctx, args) => {
         const result = await ctx.db.insert('clothesForms', args);

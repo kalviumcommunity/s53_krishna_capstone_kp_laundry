@@ -7,7 +7,7 @@ import React, { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "KP Laundry",
-  description: "Video Conferencing Application",
+  description: "",
   icons: "/logo.svg",
 };
 const HomeLayout = ({ children }: { children: ReactNode }) => {

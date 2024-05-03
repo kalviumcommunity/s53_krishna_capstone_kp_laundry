@@ -8,7 +8,7 @@ import HomeCard from './HomeCard';
 import { useUser } from '@clerk/nextjs';
 import Loader from './Loader';
 import ClotheModal from './ClotheModal';
-import ClothesForm from './ClotheForm';
+
 
 const initialValues = {
   dateTime: new Date(),

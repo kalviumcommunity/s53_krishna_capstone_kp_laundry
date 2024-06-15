@@ -32,10 +32,9 @@ const ClotheModal = ({
   onClose,
   title,
   className,
-  children,
-  handleClick,
+  // children,
+  // handleClick,
   buttonText,
-  instantMeeting,
   image,
   buttonClassName,
   buttonIcon,
@@ -50,6 +49,7 @@ const ClotheModal = ({
     pyjama: '',
     bedsheets: '',
     createdBy:user?.primaryEmailAddress?.emailAddress||'',
+    status:'picked',
     
   });
   

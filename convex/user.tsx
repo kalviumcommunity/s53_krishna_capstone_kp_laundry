@@ -20,12 +20,10 @@ export const store=mutation({
         }
         return user._id;
       }
-      // If it's a new identity, create a new `User`.
       return await ctx.db.insert("user", {
-        
-        name: identity.name!,
-        email:identity.email,
-        picture:identity.pictureUrl,
+        name: identity.name || '',
+        email: identity.email || '', 
+        picture: identity.pictureUrl || '', 
         tokenIdentifier: identity.tokenIdentifier,
       });
     },

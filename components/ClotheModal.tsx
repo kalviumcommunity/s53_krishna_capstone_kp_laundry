@@ -32,22 +32,23 @@ const ClotheModal = ({
   onClose,
   title,
   className,
-  // children,
-  // handleClick,
   buttonText,
   image,
   buttonClassName,
   buttonIcon,
 }: MeetingModalProps) => {
   const {user}=useUser();
+  console.log("hi");
+  
+  console.log(user?.primaryEmailAddress?.emailAddress)
 
   const [form, setForm] = useState({
-    shirt: '',
-    tshirt: '',
-    trousers: '',
-    pant: '',
-    pyjama: '',
-    bedsheets: '',
+    shirt: 0,
+    tshirt: 0,
+    trousers: 0,
+    pant: 0,
+    pyjama: 0,
+    bedsheets: 0,
     createdBy:user?.primaryEmailAddress?.emailAddress||'',
     status:'picked',
     
@@ -56,13 +57,9 @@ const ClotheModal = ({
 
   const createForm = useMutation(api.clothes.createClothesForm)
 
-  // const router = useRouter()
-
   const handleChange = (e:any) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value
-    });
+    const value = e.target.type === 'number' ? parseFloat(e.target.value) : e.target.value;
+    setForm({...form, [e.target.name]: value});
   };
 
   const handleSubmit = (e:any) => {
@@ -70,11 +67,7 @@ const ClotheModal = ({
     createForm(form).then(resp => {
       console.log(resp);
       onClose()
-      // if(resp){
-      //   router.push('/dashboard')
-      
-        toast.success("order received successfully !!!")
-      // }
+      toast.success("order received successfully !!!")
     })
   };
   return (
@@ -89,31 +82,30 @@ const ClotheModal = ({
           <h1 className={cn("text-3xl font-bold leading-[42px]", className)}>
             {title}
           </h1>
-          {/* <ClothesForm /> Here is where we integrate the ClothesForm */}
           <div className='mt-5'>
                     <div className='mt-2'>
                       <h2 className='text-black font-medium my-1'>shirt</h2>
-                      <Input placeholder="no.of clothes" onChange={(e) => setForm({ ...form, shirt: e.target.value })} />
+                      <Input type="number" name="shirt" value={form.shirt} onChange={handleChange} />
                     </div>
                     <div className='mt-2'>
                       <h2 className='text-black font-medium my-1'>T-shirt</h2>
-                      <Input placeholder="no.of clothes" onChange={(e) => setForm({ ...form, tshirt: e.target.value })} />
+                      <Input type="number" name="tshirt" value={form.tshirt} onChange={handleChange} />
                     </div>
                     <div className='mt-2'>
                       <h2 className='text-black font-medium my-1'>Trousers</h2>
-                      <Input placeholder="e.g. Home Decor" onChange={(e) => setForm({ ...form, trousers: e.target.value })} />
+                      <Input  type="number" name="trousers" value={form.trousers} onChange={handleChange} />
                     </div>
                     <div className='mt-2'>
                       <h2 className='text-black font-medium my-1'>Pant</h2>
-                      <Input placeholder="no.of clothes" onChange={(e) => setForm({ ...form, pant: e.target.value })} />
+                      <Input type="number" name="pant" value={form.pant} onChange={handleChange} />
                     </div>
                     <div className='mt-2'>
                       <h2 className='text-black font-medium my-1'>Pyjama</h2>
-                      <Input placeholder="no.of clothes" onChange={(e) => setForm({ ...form, pyjama: e.target.value })} />
+                      <Input type="number" name="pyjama" value={form.pyjama} onChange={handleChange} />
                     </div>
                     <div className='mt-2'>
                       <h2 className='text-black font-medium my-1'>Bedsheets</h2>
-                      <Input placeholder="no.of clothes" onChange={(e) => setForm({ ...form, bedsheets: e.target.value })} />
+                      <Input type="number" name="bedsheets" value={form.bedsheets} onChange={handleChange} />
                     </div>
                   </div>
                   <DialogClose asChild>
@@ -122,7 +114,6 @@ const ClotheModal = ({
               "bg-blue-1 focus-visible:ring-0 focus-visible:ring-offset-0"
             }
             onClick={handleSubmit}
-            // onClick={onClose}
           >
             {buttonIcon && (
               <Image

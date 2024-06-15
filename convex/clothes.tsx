@@ -12,16 +12,26 @@ export const getClothesForm = query({
     },
 })
 
+export const getClothes = query({
+    handler: async (ctx) => {
+  
+      const clotheList = await ctx.db.query("clothesForms").collect();
+  
+      return clotheList;
+    },
+  });
+
+
 export const createClothesForm = mutation({
     args: {
-        shirt: v.string(),
-        tshirt: v.string(),
-        trousers: v.string(),
-        pant: v.string(),
-        pyjama: v.string(),
-        bedsheets: v.string(),
-        // createdBy
+        shirt: v.float64(),
+        tshirt: v.float64(),
+        trousers: v.float64(),
+        pant: v.float64(),
+        pyjama: v.float64(),
+        bedsheets: v.float64(),
         createdBy: v.string(),
+        status:v.string(),
     },
     handler: async(ctx, args) => {
         const result = await ctx.db.insert('clothesForms', args);

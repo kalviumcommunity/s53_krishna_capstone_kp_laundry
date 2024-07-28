@@ -18,4 +18,12 @@ export default defineSchema({
     picture: v.string(),
     tokenIdentifier: v.string(),
   }),
+  ScheduleForm:defineTable({
+    description: v.string(),
+    dateTime:v.optional(v.string()),
+    createdBy: v.string(),
+    status: v.string(),
+  
+
+  })
 });

@@ -20,8 +20,8 @@ export const sidebarLinks = [
     },
     {
       imgURL: AreaChart,
-      route: '/status',
-      label: 'Status',
+      route: '/scheduled',
+      label: 'scheduled',
     },
     {
       imgURL:CheckCircle ,

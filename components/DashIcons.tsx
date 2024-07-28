@@ -6,9 +6,8 @@ import { useRouter } from 'next/navigation';
 
 import HomeCard from './HomeCard';
 import { useUser } from '@clerk/nextjs';
-import Loader from './Loader';
 import ClotheModal from './ClotheModal';
-
+import ScheduleModal from './ScheduleModal';
 
 const initialValues = {
   dateTime: new Date(),
@@ -16,16 +15,11 @@ const initialValues = {
   link: '',
 };
 
-const DashIcons = () => {
+const DashIcons = ({email}:any) => {
   const router = useRouter();
-  const [iconClicked, setIconClicked] = useState<
-    'add clothe' |undefined
-  >(undefined);
+  const [iconClicked, setIconClicked] = useState<'isSchedule' | 'add clothe' | undefined>(undefined);
   const [values, setValues] = useState(initialValues);
-  const { user } = useUser();
-
-
-  
+  console.log("dash",email)
 
   return (
     <section className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
@@ -37,46 +31,44 @@ const DashIcons = () => {
       />
       <HomeCard
         img="/icons/join-meeting.svg"
-        title=" Cloth Status"
+        title="Cloth Status"
         description="check current status of your clothes"
         className="bg-blue-1"
         // handleClick={() => setIconClicked('isJoiningMeeting')} 
       />
       <HomeCard
         img="/icons/schedule.svg"
-        title="Schedule  laundry"
+        title="Schedule laundry"
         description="pick a time to give your clothes"
         className="bg-purple-1"
-        // handleClick={() => setIconClicked('isScheduleMeeting')}    
+        handleClick={() => setIconClicked('isSchedule')}
       />
       <HomeCard
         img="/icons/recordings.svg"
         title="Cloth records"
         description="contains all the records of your clothes"
         className="bg-yellow-1"
-        handleClick={() => router.push('/recordings')}
+        handleClick={() => router.push('/orders')}
       />
 
-
-
-
       <ClotheModal
-              isOpen={iconClicked === 'add clothe'}
-              onClose={() => setIconClicked(undefined)}
-              title="add clothes"
-              className="text-center"
-              buttonText="add"
-              
-              handleClick={() => router.push("/dashboard")}
-            />
+        isOpen={iconClicked === 'add clothe'}
+        onClose={() => setIconClicked(undefined)}
+        title="Add Clothes"
+        className="text-center"
+        buttonText="Add"
+        email={email}
+        handleClick={() => router.push('/dashboard')}
+      />
+
+      <ScheduleModal
+        isOpen={iconClicked === 'isSchedule'}
+        onClose={() => setIconClicked(undefined)}
+        title="Schedule"
+        email={email}
+      />
     </section>
-    
-
-
-
-
   );
 };
 
 export default DashIcons;
-

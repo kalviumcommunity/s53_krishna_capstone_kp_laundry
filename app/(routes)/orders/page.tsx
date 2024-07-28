@@ -9,8 +9,8 @@ import React from 'react'
 
 const Page = () => {
   const {user}=useUser();
-  // const clothesData = useQuery(api.clothes.getClothesForm,{email:user?.primaryEmailAddress?.emailAddress|| ''});
-  const clothesData = useQuery(api.clothes.getClothes);
+  const clothesData = useQuery(api.clothes.getClothesForm,{email:user?.primaryEmailAddress?.emailAddress|| ''});
+  // const clothesData = useQuery(api.clothes.getClothes);
   if (!clothesData) {
     return (
       <div className="">
@@ -45,7 +45,7 @@ const Page = () => {
           <h2>
             {/* Uncomment and adjust the following line if delete functionality is needed */}
             {/* <Trash className='text-red-600 cursor-pointer' onClick={() => deleteClothe(clothe._id)} /> */}
-            picked
+            {clothe.status}
           </h2>
         </div>
       ))}

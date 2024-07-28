@@ -13,9 +13,9 @@ const Page = () => {
   // const clothesData = useQuery(api.clothes.getClothes);
   if (!clothesData) {
     return (
-      <div className="">
+      <div className="-my-60">
         <Loader/>
-        Loading...
+        {/* Loading... */}
       </div>
     );
   }
